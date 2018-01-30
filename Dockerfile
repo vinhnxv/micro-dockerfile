@@ -1,9 +1,14 @@
 FROM golang:1.9.2 as builder
+
+ARG TAG
+
 WORKDIR /go/src/github.com/micro
 RUN go get -u github.com/golang/dep/cmd/dep \
-  && git clone https://github.com/micro/micro.git
+  && git clone -q -b ${TAG} --depth 1 https://github.com/micro/micro.git
+
 WORKDIR /go/src/github.com/micro/micro
 COPY ./plugins.go .
+
 RUN dep init
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-w' -i -o micro ./main.go ./plugins.go
 

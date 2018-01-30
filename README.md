@@ -1,2 +1,3 @@
-# micro-sidecar
-Docker image with sidecar for micro
+# micro Dockerfile
+
+Docker image bootstrapping micro
