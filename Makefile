@@ -1,6 +1,6 @@
 IMAGE_NAME=micro
 PREFIX=arexeu/$(IMAGE_NAME)
-TAG=v0.7.1
+TAG=v0.8.0
 
 .PHONY: docker
 docker:
